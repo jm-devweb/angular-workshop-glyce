@@ -2,9 +2,7 @@
 
 ## Etape 0 : Création de l'application
 
-- Utilisez `ng new` pour créer l'application
-- Répondez oui à la question routing
-- Choisissez CSS pour le format des feuilles de style
+Il vous suffit de cloner mon repository :wink:
 
 ## Etape 1 : Liste des aliments
 
