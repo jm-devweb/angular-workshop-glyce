@@ -1,27 +1,46 @@
-# AngularWorkshopGlyce
+# Calculateur de charge glycémique
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+## Etape 0 : Création de l'application
 
-## Development server
+- Utilisez `ng new` pour créer l'application
+- Répondez oui à la question routing
+- Choisissez CSS pour le format des feuilles de style
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Etape 1 : Liste des aliments
 
-## Code scaffolding
+### Affichage de la liste des aliments
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Créez un composant responsable de l'affichage de la liste des aliments et affichez le dans le composant racine
+- Créer une interface `Aliment` avec les propriétés suivantes : `name`, `ig` et `carbs`
+- Créez un service contenant une liste avec trois aliment pour tester
+- Affichez les aliments dans le composant grâce à un tableau
+- Importez la [vraie liste des aliments](./aliments.json) dans votre service
 
-## Build
+### Modification de la liste des aliments
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Créez un formulaire qui permet d'ajouter un aliment à la liste
+- Ajouter une colonne au tableau permettant de supprimer un aliment
 
-## Running unit tests
+## Etape 2 : Le calculateur
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Gérer le routing
 
-## Running end-to-end tests
+- Créez un menu permettant d'afficher le calculateur ou la liste des aliments (grâce au router)
+- Dans le composant racine, remplacez l'appel à la liste des aliments par le `router-outlet`
+- Créez un composant responsable de l'affichage du calculateur
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Etapes bonus
 
-## Further help
+### Bonus 1 : Une application plus sympa à utiliser
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Ajoutez des validateurs sur le formulaire aliment (un IG est compris entre 0 et 200, une proportion de glucide entre 0 et 100)
+- Ajoutez des validateurs sur le formulaire de calcul
+- Formattez proprement les chiffres à virgule
+- Triez la liste de sélection d'aliment par ordre alphabétique
+- Proposez des tris du tableau sur chaque colonne
+
+### Bonus 2 : Une application qui garde la mémoire
+
+- Proposez d'enregistrer le résultat de votre calcul sous forme de repas
+- Sauvegardez les données dans le local storage
+- Créez un composant pour affichez la liste des repas enregistrés
