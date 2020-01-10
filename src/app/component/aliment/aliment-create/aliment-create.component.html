@@ -1,0 +1,40 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center" >
+  <mat-card fxFlex="500px" fxFlex.xs="80%">
+    <mat-card-title>Ajouter un aliment</mat-card-title>
+
+    <form [formGroup]="alimentForm" autocomplete="off" novalidate (ngSubmit)="createAliment(alimentForm.value)"
+          fxLayout="column wrap"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+          gdGap="60px 60px">
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="aliment" formControlName="name" id="name">
+          <mat-hint align="begin">Max 10 caracteres long.</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Champs obligatoire</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">Vous avez plus de 10 caracteres.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" placeholder="Ig" formControlName="ig" id="ig">
+          <mat-hint align="begin">Supérieur à 0</mat-hint>
+          <mat-error *ngIf="hasError('ig', 'required')">Champs obligatoire</mat-error>
+          <mat-error *ngIf="hasError('ig', 'max')">Maximum 10</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" placeholder="carbs" formControlName="carbs" id="carbs" min="0"  max="10">
+          <mat-hint align="begin">Supérieur à 0</mat-hint>
+          <mat-error *ngIf="hasError('carbs', 'required')">Champs obligatoire</mat-error>
+          <mat-error *ngIf="hasError('carbs', 'max')">Maximum 10</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!alimentForm.valid">Ajouter</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Annuler</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>
